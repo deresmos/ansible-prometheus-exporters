@@ -1,0 +1,9 @@
+[submodule "ansible-node-exporter"]
+	path = ansible-node-exporter
+	url = https://github.com/deresmos/ansible-node-exporter.git
+[submodule "ansible-process-exporter"]
+	path = ansible-process-exporter
+	url = https://github.com/deresmos/ansible-node-exporter.git
+[submodule "ansible-prometheus"]
+	path = ansible-prometheus
+	url = https://github.com/deresmos/ansible-prometheus

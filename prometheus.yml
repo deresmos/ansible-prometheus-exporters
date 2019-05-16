@@ -1,0 +1,23 @@
+---
+- hosts: self
+  become_user: root
+  roles:
+    - role: ./ansible-prometheus
+      prometheus_version: 2.9.2
+      prometheus_config_dir: /etc/prometheus
+      prometheus_db_dir: /var/lib/prometheus
+      prometheus_web_listen_address: "0.0.0.0:9090"
+
+      prometheus_storage_retention: "15d"
+      prometheus_storage_retention_size: "30GB"
+
+      prometheus_global:
+        scrape_interval: 15s
+        scrape_timeout: 10s
+        evaluation_interval: 15s
+
+      prometheus_scrape_configs:
+        - job_name: "prometheus"
+          static_configs:
+            - targets:
+              - "localhost:9090"

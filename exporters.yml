@@ -1,0 +1,20 @@
+---
+- hosts: self
+  become_user: root
+  roles:
+    - role: ./ansible-node-exporter
+      node_exporter_version: 0.17.0
+      node_exporter_web_listen_address: '0.0.0.0:9100'
+      node_exporter_system_group: 'node_exporter'
+      node_exporter_system_user: 'node_exporter'
+      node_exporter_dependencies: []
+      node_exporter_enabled_collectors:
+        - processes
+        - systemd
+
+    - role: ./ansible-process-exporter
+      process_exporter_version: 0.5.0
+      process_exporter_web_listen_address: '0.0.0.0:9256'
+      process_exporter_system_group: 'process_exporter'
+      process_exporter_system_user: 'process_exporter'
+      process_exporter_config_directory: "/etc/process_exporter"
