@@ -1,9 +1,9 @@
 ---
 - hosts: self
-  become_user: root
+  become: true
   roles:
     - role: ./ansible-prometheus
-      prometheus_version: 2.9.2
+      prometheus_version: 2.13.0
       prometheus_config_dir: /etc/prometheus
       prometheus_db_dir: /var/lib/prometheus
       prometheus_web_listen_address: "0.0.0.0:9090"
